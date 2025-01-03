@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_quizzes",
+  "info": {
+    "displayName": "Quiz",
+    "icon": "question",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "options": {
+      "type": "json",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "abcd",
+        "fill"
+      ],
+      "required": true,
+      "default": "abcd"
+    }
+  }
+}

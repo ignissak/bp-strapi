@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_chapters",
+  "info": {
+    "singularName": "course-chapter",
+    "pluralName": "course-chapters",
+    "displayName": "CourseChapter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "course_chapter_entries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-chapter-entry.course-chapter-entry",
+      "mappedBy": "course_chapter"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_chapter_entries",
+  "info": {
+    "singularName": "course-chapter-entry",
+    "pluralName": "course-chapter-entries",
+    "displayName": "CourseChapterEntry",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "dynamic": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.slider",
+        "shared.seo",
+        "shared.rich-text",
+        "shared.quote",
+        "shared.media",
+        "shared.quiz"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "study",
+        "code",
+        "quiz"
+      ],
+      "required": true,
+      "default": "study"
+    },
+    "course_chapter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-chapter.course-chapter",
+      "inversedBy": "course_chapter_entries"
+    }
+  }
+}
