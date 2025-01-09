@@ -36,6 +36,11 @@
     },
     "estimateTime": {
       "type": "string"
+    },
+    "course_order": {
+      "type": "integer",
+      "unique": true,
+      "min": 0
     }
   }
 }
