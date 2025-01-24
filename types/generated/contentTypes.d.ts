@@ -390,14 +390,7 @@ export interface ApiCourseChapterEntryCourseChapterEntry
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     dynamic: Schema.Attribute.DynamicZone<
-      [
-        'shared.slider',
-        'shared.seo',
-        'shared.rich-text',
-        'shared.quote',
-        'shared.media',
-        'shared.quiz',
-      ]
+      ['shared.rich-text', 'shared.media', 'shared.quiz', 'shared.note']
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
