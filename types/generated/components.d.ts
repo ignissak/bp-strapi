@@ -11,6 +11,22 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedNote extends Struct.ComponentSchema {
+  collectionName: 'components_shared_notes';
+  info: {
+    displayName: 'Note';
+    icon: 'file';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText & Schema.Attribute.Required;
+    icon: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['red', 'blue', 'green']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'red'>;
+  };
+}
+
 export interface SharedQuiz extends Struct.ComponentSchema {
   collectionName: 'components_shared_quizzes';
   info: {
@@ -83,6 +99,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.media': SharedMedia;
+      'shared.note': SharedNote;
       'shared.quiz': SharedQuiz;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

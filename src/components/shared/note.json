@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_notes",
+  "info": {
+    "displayName": "Note",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "richtext",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "required": true,
+      "default": "red"
+    },
+    "icon": {
+      "type": "string"
+    }
+  }
+}
