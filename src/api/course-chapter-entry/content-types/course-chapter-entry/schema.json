@@ -21,8 +21,8 @@
       "components": [
         "shared.rich-text",
         "shared.media",
-        "shared.quiz",
-        "shared.note"
+        "shared.note",
+        "quiz.quiz"
       ]
     },
     "slug": {

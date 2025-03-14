@@ -1,5 +1,38 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface QuizAnswer extends Struct.ComponentSchema {
+  collectionName: 'components_quiz_answers';
+  info: {
+    description: 'Answer options for quiz questions';
+    displayName: 'Answer';
+    icon: 'check-square';
+  };
+  attributes: {
+    isCorrect: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface QuizQuiz extends Struct.ComponentSchema {
+  collectionName: 'components_quiz_quizes';
+  info: {
+    description: 'Quiz';
+    displayName: 'Quiz';
+    icon: 'check-square';
+  };
+  attributes: {
+    answers: Schema.Attribute.Component<'quiz.answer', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      >;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -98,6 +131,8 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'quiz.answer': QuizAnswer;
+      'quiz.quiz': QuizQuiz;
       'shared.media': SharedMedia;
       'shared.note': SharedNote;
       'shared.quiz': SharedQuiz;
