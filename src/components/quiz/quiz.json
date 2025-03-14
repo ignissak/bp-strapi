@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_quiz_quizes",
+  "info": {
+    "displayName": "Quiz",
+    "icon": "check-square",
+    "description": "Quiz"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "answers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quiz.answer",
+      "min": 1
+    }
+  }
+}
