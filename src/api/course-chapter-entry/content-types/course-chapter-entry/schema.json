@@ -4,7 +4,7 @@
   "info": {
     "singularName": "course-chapter-entry",
     "pluralName": "course-chapter-entries",
-    "displayName": "CourseChapterEntry",
+    "displayName": "Lesson",
     "description": ""
   },
   "options": {

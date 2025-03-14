@@ -374,7 +374,7 @@ export interface ApiCourseChapterEntryCourseChapterEntry
   collectionName: 'course_chapter_entries';
   info: {
     description: '';
-    displayName: 'CourseChapterEntry';
+    displayName: 'Lesson';
     pluralName: 'course-chapter-entries';
     singularName: 'course-chapter-entry';
   };
@@ -415,7 +415,7 @@ export interface ApiCourseChapterCourseChapter
   collectionName: 'course_chapters';
   info: {
     description: '';
-    displayName: 'CourseChapter';
+    displayName: 'Module';
     pluralName: 'course-chapters';
     singularName: 'course-chapter';
   };
