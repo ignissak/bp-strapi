@@ -1,0 +1,6 @@
+services:
+  strapi-cms:
+    container_name: bp_strapi-cms
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
