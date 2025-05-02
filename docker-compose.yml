@@ -1,6 +1,37 @@
 services:
+  strapi-db:
+    image: postgres:latest
+    container_name: bp_strapi-db
+    environment:
+      - POSTGRES_PASSWORD=${ADMIN_JWT_SECRET}
+    volumes:
+      - strapi-db:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - bp_strapi
+
   strapi-cms:
+    depends_on:
+      - strapi-db
     container_name: bp_strapi-cms
     build:
       context: .
       dockerfile: Dockerfile.dev
+    image: ghcr.io/ignissak/bp-strapi:main
+    environment:
+      - DATABASE_CLIENT=postgres
+      - DATABASE_URL=postgres://postgres:${ADMIN_JWT_SECRET}@postgres-server:5432/postgres
+      - NODE_ENV=production
+    ports:
+      - 1337:1337
+    restart: always
+    networks:
+      - bp_strapi
+
+volumes:
+  strapi-db:
+    driver: local
+
+networks:
+  bp_strapi:
+    driver: bridge
