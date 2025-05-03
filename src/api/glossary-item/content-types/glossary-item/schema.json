@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "glossary_items",
+  "info": {
+    "singularName": "glossary-item",
+    "pluralName": "glossary-items",
+    "displayName": "GlossaryItem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "term": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "definition": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

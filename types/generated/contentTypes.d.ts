@@ -489,6 +489,39 @@ export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGlossaryItemGlossaryItem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'glossary_items';
+  info: {
+    description: '';
+    displayName: 'GlossaryItem';
+    pluralName: 'glossary-items';
+    singularName: 'glossary-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    definition: Schema.Attribute.RichText & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::glossary-item.glossary-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    term: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiResourceResource extends Struct.CollectionTypeSchema {
   collectionName: 'resources';
   info: {
@@ -1036,6 +1069,7 @@ declare module '@strapi/strapi' {
       'api::course-chapter-entry.course-chapter-entry': ApiCourseChapterEntryCourseChapterEntry;
       'api::course-chapter.course-chapter': ApiCourseChapterCourseChapter;
       'api::course.course': ApiCourseCourse;
+      'api::glossary-item.glossary-item': ApiGlossaryItemGlossaryItem;
       'api::resource.resource': ApiResourceResource;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
